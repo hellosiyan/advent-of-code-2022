@@ -28,6 +28,21 @@ export function unique<T>(value: T, index: number, self: T[]) {
     return self.indexOf(value) === index;
 }
 
+export function rotate<T>(value: T[][]): T[][] {
+    const rotated: T[][] = Array.from(
+        Array(value[0].length),
+        () => Array(value.length),
+    );
+
+    for (let y = 0; y < value.length; y++) {
+        for (let x = 0; x < value[y].length; x++) {
+            rotated[x][y] = value[y][x];
+        }
+    }
+
+    return rotated;
+}
+
 export class Range {
     constructor(public start: number, public end: number) {}
 
